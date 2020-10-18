@@ -1,22 +1,30 @@
 {% extends 'base.html' %}
 {% block body %}
-    <div class="col-md-6">
-        <a href="/login">Log out</a>
-    </div>
-    {% csrf_token %}
-    <br />
-    <div class="row">
-        {% for x in api.articles %}
-        <div class="col-md-6">
-            <div class="card" style="width: 18rem;">
-                <img src="{{x.urlToImage}}" class="card-img-top" alt="{{x.source.name}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{x.webTitle}}</h5>
-                    <p class="card-text">{{x.description|truncatechars:100}}</p>
-                    <a href="{{x.webUrl}}" target="_blank" class="btn btn-primary">Read more</a>
-                </div>
-            </div>  
+<!-- <div class="col-xl"> -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <center> <h1 class="navbar-brand">The latest Tech News</h1></center>>
         </div>
-        {%endfor%}
+    </nav>
+<!-- </div> -->
+<br />
+<div class="col-md-6">
+    <a href="/login">Log out</a>
+</div>
+{% csrf_token %}
+<br />
+<div class="row">
+    {% for x in api.articles %}
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <img src="{{x.urlToImage}}" class="card-img-top" alt="{{x.source.name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{x.webTitle}}</h5>
+                <p class="card-text">{{x.description|truncatechars:100}}</p>
+                <a href="{{x.webUrl}}" target="_blank" class="btn btn-primary">Read more</a>
+            </div>
+        </div>  
     </div>
+    {%endfor%}
+</div>
 {% endblock %}%}
