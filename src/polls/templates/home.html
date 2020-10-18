@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="row row-cols-1 row-cols-md-2">
-   
+<form method="POST">  
+    <div class="col-md-6">
+        <a href="/login">Log out</a>
+    </div>
+    {% csrf_token %}
+    <br />
+    <div class="row">
         {% for x in api.articles %}
         <div class="col-md-6">
             <div class="card" style="width: 18rem;">
@@ -14,6 +19,6 @@
             </div>  
         </div>
         {%endfor%}
-    <
-</div>
+    </div>
+</form>
 {% endblock %}%}
