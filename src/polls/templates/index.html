@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="col-md-9">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <h1 class="navbar-brand">Registration Form</h1>
+        </div>
+    </nav>
+</div>
+<form method="POST">
+    {% csrf_token %}
+    <br />
+    <div class="col-md-8">
+        <div class="form-group">
+            <label for="username" >User name</label>
+            <input type="text" name="username" class="form-control" required="required">
+        </div>
+        <div class="form-group ">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="firstname">First name</label>
+            <input type="text" name="firstname" class="form-control" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last name</label>
+            <input type="text" name="lastname" class="form-control" required="required"/>
+        </div>
+        <center><label class="text-danger">{{ msg }}</label ></center>
+        <br />
+        <div class="form-inline">
+            <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary form-control">Submit</button>
+                <a href="/login" role="button" class="btn btn-outline-primary" aria-pressed="true">Log in</a>
+           </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
