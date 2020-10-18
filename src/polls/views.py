@@ -24,7 +24,7 @@ def home(request):
         if Member.objects.filter(username=request.POST['username'], password=request.POST['password']).exists():
             import requests
             import json
-            url = "https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=NCjaCrkFKsGwewMWMMjF5vXRASbTnVg8"
+            url = "http://newsapi.org/v2/everything?q=apple&from=2020-10-16&to=2020-10-16&sortBy=popularity&apiKey=14d6ec672a5e4e72879c02d13c8a1b27"
             news_api_request = requests.get(url)
             api = json.loads(news_api_request.content)
             return render(request, 'home.html', {'api': api})

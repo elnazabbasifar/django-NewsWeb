@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="row">
-    {% for x in api.results %}
-    <div class="col-sm">
-        <div class="card" style="width: 18rem;">
-            <img src="{{x.media.url}}" class="card-img-top" alt="{{x.source}}">
-            <div class="card-body">
-                <h5 class="card-title">{{x.title}}</h5>
-                <p class="card-text">{{x.abstract|truncatechars:100}}</p>
-                <a href="{{x.url}}" target="_blank" class="btn btn-primary">Read more</a>
-            </div>
-        </div>  
-    </div>
-    {%endfor%}
+<div class="row row-cols-1 row-cols-md-2">
+   
+        {% for x in api.articles %}
+        <div class="col-md-6">
+            <div class="card" style="width: 18rem;">
+                <img src="{{x.urlToImage}}" class="card-img-top" alt="{{x.source.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{x.webTitle}}</h5>
+                    <p class="card-text">{{x.description|truncatechars:100}}</p>
+                    <a href="{{x.webUrl}}" target="_blank" class="btn btn-primary">Read more</a>
+                </div>
+            </div>  
+        </div>
+        {%endfor%}
+    <
 </div>
 {% endblock %}%}
